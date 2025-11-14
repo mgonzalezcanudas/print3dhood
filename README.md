@@ -2,6 +2,8 @@
 
 Print3dhood turns any neighborhood into a stack of watertight, 3D-printable layers. A FastAPI backend contacts OpenStreetMap for footprints, roads, parks, and water, extrudes each layer with `shapely` + `trimesh`, and ships STL zips straight to the browser via a slick Leaflet UI with real-time previews.
 
+Disclaimer: This app was vibe-coded in an afternoon using GPT5-CODEX. A certain amount of troubleshooting was required to make it work.
+
 ![Screenshot of the Print3dhood UI](screenshot.png)
 
 ## Features
