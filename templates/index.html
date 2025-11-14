@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print3dhood</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Print3dhood</h1>
+      <p>Turn any neighborhood into a 3D-printable miniature.</p>
+    </div>
+    <div class="status-pill" id="health-status">Checking backend…</div>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="control-block">
+        <label for="address-input">Search for an address</label>
+        <div class="address-row">
+          <input type="text" id="address-input" placeholder="1600 Amphitheatre Pkwy" autocomplete="off" />
+          <button id="search-btn">Search</button>
+        </div>
+        <select id="address-results" size="1" aria-label="Matching addresses"></select>
+      </div>
+
+      <div class="control-grid">
+        <div>
+          <label for="radius-input">Radius (meters)</label>
+          <input type="range" id="radius-input" min="100" max="750" step="25" value="250" />
+          <div class="range-value"><span id="radius-value">250</span> m</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="generate-btn" class="primary">Generate printable model</button>
+        <button id="preview-btn" type="button">Preview layers</button>
+        <p class="help-text">Click on the map to fine-tune your home location before exporting.</p>
+      </div>
+      <div class="preview" id="preview"></div>
+    </section>
+
+    <section class="map-panel">
+      <div id="map"></div>
+      <div class="map-meta">
+        <div>Latitude: <span id="lat-display">0.0000</span></div>
+        <div>Longitude: <span id="lng-display">0.0000</span></div>
+      </div>
+      <div class="log" id="log"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Data sourced via OpenStreetMap's Overpass &amp; Nominatim APIs. Please be mindful of fair-use limits.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="{{ url_for('static', path='js/app.js') }}" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+:root {
+  --primary: #2e7dff;
+  --primary-dark: #1b4ca1;
+  --bg: #f7f7fb;
+  --card: #ffffff;
+  --border: #e1e1ef;
+  --text: #1c1c2e;
+  --muted: #6b6b8a;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem clamp(1.25rem, 3vw, 3rem);
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.8rem;
+}
+
+.status-pill {
+  background: #e8f0ff;
+  color: #194bff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+.status-pill.ok {
+  background: #d1fae5;
+  color: #047857;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem clamp(1.25rem, 3vw, 3rem);
+}
+
+.controls, .map-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(15, 15, 40, 0.05);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+select#address-results {
+  margin-top: 0.5rem;
+  min-height: 2.5rem;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.range-value {
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+.address-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.address-row button {
+  min-width: 110px;
+}
+
+button {
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e2e6f7;
+  color: #1c1c2e;
+}
+
+button.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+button + button {
+  margin-left: 0.5rem;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.help-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.preview {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: #f8faff;
+}
+
+.preview h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 0.75rem 1rem;
+}
+
+.preview-card {
+  padding: 0.15rem 0 0.4rem;
+  text-align: center;
+}
+
+.preview-card h4 {
+  margin: 0 0 0.2rem;
+}
+
+.preview-card p {
+  margin: 0.05rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.preview-card canvas {
+  width: 70%;
+  max-width: 140px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
+  border: none;
+  display: block;
+  margin: 0.2rem auto 0;
+}
+
+.control-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#map {
+  width: 100%;
+  height: min(70vh, 640px);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+}
+
+.map-meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+.log {
+  margin-top: 1rem;
+  background: #0f172a;
+  color: #93c5fd;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  min-height: 3.5rem;
+  font-size: 0.9rem;
+  overflow-y: auto;
+  max-height: 120px;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
